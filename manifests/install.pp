@@ -16,8 +16,10 @@ class rsyslog::install inherits rsyslog::params {
     ensure => $rsyslog::params::package_status,
   }
 
-  package { $rsyslog::params::relp_package_name:
-    ensure => $rsyslog::params::package_status
-  }
+  if $rsyslog::params::relp_package_name {
 
+    package { $rsyslog::params::relp_package_name:
+      ensure => $rsyslog::params::package_status
+    }
+  }
 }

@@ -35,25 +35,50 @@ class rsyslog::params {
       $server_conf            = "${rsyslog_d}server.conf"
     }
     redhat: {
-      $rsyslog_package_name   = 'rsyslog'
-      $relp_package_name      = 'rsyslog-relp'
-      $mysql_package_name     = 'rsyslog-mysql'
-      $pgsql_package_name     = 'rsyslog-pgsql'
-      $package_status         = 'latest'
-      $rsyslog_d              = '/etc/rsyslog.d/'
-      $rsyslog_conf           = '/etc/rsyslog.conf'
-      $rsyslog_default        = '/etc/sysconfig/rsyslog'
-      $run_user               = 'root'
-      $run_group              = 'root'
-      $log_user               = 'root'
-      $log_group              = 'root'
-      $log_style              = 'redhat'
-      $perm_file              = '0600'
-      $perm_dir               = '0750'
-      $spool_dir              = '/var/lib/rsyslog/'
-      $service_name           = 'rsyslog'
-      $client_conf            = "${rsyslog_d}client.conf"
-      $server_conf            = "${rsyslog_d}server.conf"
+      case $::lsbmajdistrelease {
+        6: {
+          $rsyslog_package_name   = 'rsyslog'
+          $relp_package_name      = 'rsyslog-relp'
+          $mysql_package_name     = 'rsyslog-mysql'
+          $pgsql_package_name     = 'rsyslog-pgsql'
+          $package_status         = 'latest'
+          $rsyslog_d              = '/etc/rsyslog.d/'
+          $rsyslog_conf           = '/etc/rsyslog.conf'
+          $rsyslog_default        = '/etc/sysconfig/rsyslog'
+          $run_user               = 'root'
+          $run_group              = 'root'
+          $log_user               = 'root'
+          $log_group              = 'root'
+          $log_style              = 'redhat'
+          $perm_file              = '0600'
+          $perm_dir               = '0750'
+          $spool_dir              = '/var/lib/rsyslog/'
+          $service_name           = 'rsyslog'
+          $client_conf            = "${rsyslog_d}client.conf"
+          $server_conf            = "${rsyslog_d}server.conf"
+        }
+        5: {
+          $rsyslog_package_name   = 'rsyslog5'
+          $relp_package_name      = undef
+          $mysql_package_name     = 'rsyslog5-mysql'
+          $pgsql_package_name     = 'rsyslog5-pgsql'
+          $package_status         = 'latest'
+          $rsyslog_d              = '/etc/rsyslog.d/'
+          $rsyslog_conf           = '/etc/rsyslog.conf'
+          $rsyslog_default        = '/etc/sysconfig/rsyslog'
+          $run_user               = 'root'
+          $run_group              = 'root'
+          $log_user               = 'root'
+          $log_group              = 'root'
+          $log_style              = 'redhat'
+          $perm_file              = '0600'
+          $perm_dir               = '0750'
+          $spool_dir              = '/var/lib/rsyslog/'
+          $service_name           = 'rsyslog'
+          $client_conf            = "${rsyslog_d}client.conf"
+          $server_conf            = "${rsyslog_d}server.conf"
+        }
+      }
     }
     freebsd: {
       $rsyslog_package_name   = 'sysutils/rsyslog5'
@@ -84,5 +109,4 @@ class rsyslog::params {
       }
     }
   }
-
 }
