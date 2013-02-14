@@ -63,6 +63,7 @@ Declare the following to configure the connection:
         enable_udp                => true,
         enable_onefile            => false,
         server_dir                => '/srv/log/',
+        per_host_dir                => '%$YEAR%/%$MONTH%/%$DAY%/%HOSTNAME%',
         custom_config             => undef,
         high_precision_timestamps => false,
     }
@@ -80,6 +81,7 @@ The following lists all the class parameters this module accepts.
     enable_udp                          true,false          Enable UDP listener. Defaults to true.
     enable_onefile                      true,false          Only one logfile per remote host. Defaults to false.
     server_dir                          STRING              Folder where logs will be stored on the server. Defaults to '/srv/log/'
+    per_host_dir                        STRING              Directory to write a remote hosts logs to. Defaults to '%$YEAR%/%$MONTH%/%$DAY%/%HOSTNAME%'
     custom_config                       STRING              Specify your own template to use for server config. Defaults to undef. Example usage: custom_config => 'rsyslog/my_config.erb'
     high_precision_timestamps           true,false          Whether or not to use high precision timestamps.
 

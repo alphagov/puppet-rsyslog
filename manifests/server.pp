@@ -22,6 +22,7 @@ class rsyslog::server (
   $enable_udp                = true,
   $enable_onefile            = false,
   $server_dir                = '/srv/log/',
+  $per_host_dir                = '%$YEAR%/%$MONTH%/%$DAY%/%HOSTNAME%',
   $custom_config             = undef,
   $high_precision_timestamps = false
 ) inherits rsyslog {
