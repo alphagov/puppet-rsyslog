@@ -31,7 +31,7 @@ $Template dynKernLog,"<%= scope.lookupvar('rsyslog::server::server_dir') -%><%= 
 $Template dynUserLog,"<%= scope.lookupvar('rsyslog::server::server_dir') -%><%= scope.lookupvar('rsyslog::server::per_host_dir') -%>/user.log"
 $Template dynMailLog,"<%= scope.lookupvar('rsyslog::server::server_dir') -%><%= scope.lookupvar('rsyslog::server::per_host_dir') -%>/mail.log"
 $Template dynDebug,"<%= scope.lookupvar('rsyslog::server::server_dir') -%><%= scope.lookupvar('rsyslog::server::per_host_dir') -%>/debug"
-$Template dynMessages,"<%= scope.lookupvar('rsyslog::server::server_dir') -%>%source:R,ERE,1,DFLT:([A-Za-z\-\d]*)--end%/messages"
+$Template dynMessages,"<%= scope.lookupvar('rsyslog::server::server_dir') -%><%= scope.lookupvar('rsyslog::server::per_host_dir') -%>/messages"
 
 # Rules
 auth,authpriv.*         ?dynAuthLog
