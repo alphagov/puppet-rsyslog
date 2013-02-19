@@ -52,6 +52,12 @@ $Template dynAllMessages,"<%= scope.lookupvar('rsyslog::server::server_dir') -%>
 # Rules
 *.*                 -?dynAllMessages
 <% end -%>
+#
+# Stop processing of all non-local messages. You can process remote messages
+# on levels less than 35.
+#
+:fromhost-ip,!isequal,"127.0.0.1" ~
+
 
 # Switch back to default ruleset
 $RuleSet RSYSLOG_DefaultRuleset
