@@ -12,7 +12,7 @@ describe 'rsyslog::server', :type => :class do
       let(:title) { 'rsyslog-server-basic' }
 
       it 'should compile' do
-        should contain_file('/etc/rsyslog.d/server.conf')
+        should contain_file('/etc/rsyslog.d/35-server.conf')
       end
     end
   end
@@ -28,7 +28,7 @@ describe 'rsyslog::server', :type => :class do
       let(:title) { 'rsyslog-server-basic' }
 
       it 'should compile' do
-        should contain_file('/etc/rsyslog.d/server.conf')
+        should contain_file('/etc/rsyslog.d/35-server.conf')
       end
     end
   end
@@ -44,7 +44,7 @@ describe 'rsyslog::server', :type => :class do
       let(:title) { 'rsyslog-server-basic' }
 
       it 'should compile' do
-        should contain_file('/etc/syslog.d/server.conf')
+        should contain_file('/etc/syslog.d/35-server.conf')
       end
     end
   end

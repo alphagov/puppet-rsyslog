@@ -33,7 +33,7 @@ class rsyslog::client (
 ) inherits rsyslog {
 
   $content_real = $custom_config ? {
-    ''      => template("${module_name}/client.conf.erb"),
+    ''      => template("${module_name}/50-client.conf.erb"),
     default => template($custom_config),
   }
 

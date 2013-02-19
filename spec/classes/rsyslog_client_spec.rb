@@ -12,7 +12,7 @@ describe 'rsyslog::client', :type => :class do
       let(:title) { 'rsyslog-client-basic' }
 
       it 'should compile' do
-        should contain_file('/etc/rsyslog.d/client.conf')
+        should contain_file('/etc/rsyslog.d/50-client.conf')
       end
     end
   end
@@ -28,7 +28,7 @@ describe 'rsyslog::client', :type => :class do
       let(:title) { 'rsyslog-client-basic' }
 
       it 'should compile' do
-        should contain_file('/etc/rsyslog.d/client.conf')
+        should contain_file('/etc/rsyslog.d/50-client.conf')
       end
     end
   end
@@ -44,7 +44,7 @@ describe 'rsyslog::client', :type => :class do
       let(:title) { 'rsyslog-client-basic' }
 
       it 'should compile' do
-        should contain_file('/etc/syslog.d/client.conf')
+        should contain_file('/etc/syslog.d/50-client.conf')
       end
     end
   end

@@ -31,8 +31,8 @@ class rsyslog::params {
       $perm_dir               = '0755'
       $spool_dir              = '/var/spool/rsyslog/'
       $service_name           = 'rsyslog'
-      $client_conf            = "${rsyslog_d}client.conf"
-      $server_conf            = "${rsyslog_d}server.conf"
+      $client_conf            = "${rsyslog_d}50-client.conf"
+      $server_conf            = "${rsyslog_d}35-server.conf"
     }
     redhat: {
       case $::lsbmajdistrelease {
@@ -54,8 +54,8 @@ class rsyslog::params {
           $perm_dir               = '0750'
           $spool_dir              = '/var/lib/rsyslog/'
           $service_name           = 'rsyslog'
-          $client_conf            = "${rsyslog_d}client.conf"
-          $server_conf            = "${rsyslog_d}server.conf"
+          $client_conf            = "${rsyslog_d}50-client.conf"
+          $server_conf            = "${rsyslog_d}35-server.conf"
         }
         6: {
           $rsyslog_package_name   = 'rsyslog'
@@ -75,8 +75,8 @@ class rsyslog::params {
           $perm_dir               = '0750'
           $spool_dir              = '/var/lib/rsyslog/'
           $service_name           = 'rsyslog'
-          $client_conf            = "${rsyslog_d}client.conf"
-          $server_conf            = "${rsyslog_d}server.conf"
+          $client_conf            = "${rsyslog_d}50-client.conf"
+          $server_conf            = "${rsyslog_d}35-server.conf"
         }
         5: {
           $rsyslog_package_name   = 'rsyslog5'
@@ -96,8 +96,8 @@ class rsyslog::params {
           $perm_dir               = '0750'
           $spool_dir              = '/var/lib/rsyslog/'
           $service_name           = 'rsyslog'
-          $client_conf            = "${rsyslog_d}client.conf"
-          $server_conf            = "${rsyslog_d}server.conf"
+          $client_conf            = "${rsyslog_d}50-client.conf"
+          $server_conf            = "${rsyslog_d}35-server.conf"
         }
       }
     }
@@ -119,8 +119,8 @@ class rsyslog::params {
       $perm_dir               = '0755'
       $spool_dir              = '/var/spool/syslog/'
       $service_name           = 'syslogd'
-      $client_conf            = "${rsyslog_d}client.conf"
-      $server_conf            = "${rsyslog_d}server.conf"
+      $client_conf            = "${rsyslog_d}50-client.conf"
+      $server_conf            = "${rsyslog_d}35-server.conf"
     }
     default: {
       case $::operatingsystem {
