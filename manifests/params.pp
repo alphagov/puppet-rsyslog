@@ -33,6 +33,7 @@ class rsyslog::params {
       $service_name           = 'rsyslog'
       $client_conf            = "${rsyslog_d}50-client.conf"
       $server_conf            = "${rsyslog_d}35-server.conf"
+      $logstash_conf          = "${rsyslog_d}34-logstash.conf"
     }
     redhat: {
       case $::lsbmajdistrelease {
@@ -56,6 +57,7 @@ class rsyslog::params {
           $service_name           = 'rsyslog'
           $client_conf            = "${rsyslog_d}50-client.conf"
           $server_conf            = "${rsyslog_d}35-server.conf"
+          $logstash_conf          = "${rsyslog_d}34-logstash.conf"
         }
         6: {
           $rsyslog_package_name   = 'rsyslog'
@@ -77,6 +79,7 @@ class rsyslog::params {
           $service_name           = 'rsyslog'
           $client_conf            = "${rsyslog_d}50-client.conf"
           $server_conf            = "${rsyslog_d}35-server.conf"
+          $logstash_conf          = "${rsyslog_d}34-logstash.conf"
         }
         5: {
           $rsyslog_package_name   = 'rsyslog5'
@@ -98,6 +101,7 @@ class rsyslog::params {
           $service_name           = 'rsyslog'
           $client_conf            = "${rsyslog_d}50-client.conf"
           $server_conf            = "${rsyslog_d}35-server.conf"
+          $logstash_conf          = "${rsyslog_d}34-logstash.conf"
         }
       }
     }
@@ -121,6 +125,7 @@ class rsyslog::params {
       $service_name           = 'syslogd'
       $client_conf            = "${rsyslog_d}50-client.conf"
       $server_conf            = "${rsyslog_d}35-server.conf"
+      $logstash_conf          = "${rsyslog_d}34-logstash.conf"
     }
     default: {
       case $::operatingsystem {
