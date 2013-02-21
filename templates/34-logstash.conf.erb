@@ -29,6 +29,7 @@ $ActionResumeRetryCount -1      # infinety retries if host is down
 <% else -%>
 *.* @<%= scope.lookupvar('rsyslog::logstash::server') -%>:<%= scope.lookupvar('rsyslog::logstash::port') -%>
 <% end -%>
+
 $RuleSet RSYSLOG_DefaultRulese
 $InputUDPServerBindRuleset logstash
 $UDPServerRun 514
