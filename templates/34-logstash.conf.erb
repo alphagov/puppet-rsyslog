@@ -23,6 +23,7 @@ $ActionQueueType LinkedList     # run asynchronously
 $ActionResumeRetryCount -1      # infinety retries if host is down
 
 # Log to remote syslog server using <%= scope.lookupvar('rsyslog::logstash::remote_type') %>:<%= scope.lookupvar('rsyslog::logstash::port') -%>
+
 <% if scope.lookupvar('rsyslog::logstash::remote_type') == 'tcp' -%>
 *.* @@<%= scope.lookupvar('rsyslog::logstash::server') -%>:<%= scope.lookupvar('rsyslog::client::port') -%>
 <% else -%>
