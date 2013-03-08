@@ -32,6 +32,7 @@ class rsyslog::params {
       $spool_dir              = '/var/spool/rsyslog/'
       $service_name           = 'rsyslog'
       $client_conf            = "${rsyslog_d}50-client.conf"
+      $remote_conf            = "${rsyslog_d}40-remote.conf"
       $server_conf            = "${rsyslog_d}35-server.conf"
       $logstash_conf          = "${rsyslog_d}34-logstash.conf"
     }

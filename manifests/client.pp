@@ -45,4 +45,16 @@ class rsyslog::client (
     require => Class['rsyslog::config'],
     notify  => Class['rsyslog::service'],
   }
+
+  $content_remote = template("${module_name}/40-remote.conf.erb")
+
+  file { $rsyslog::params::remote_conf:
+    ensure  => present,
+    owner   => root,
+    group   => $rsyslog::params::run_group,
+    content => $content_remote,
+    require => Class['rsyslog::config'],
+    notify  => Class['rsyslog::service'],
+  }
+
 }
