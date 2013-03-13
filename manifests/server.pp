@@ -28,7 +28,7 @@ class rsyslog::server (
 ) inherits rsyslog {
 
   $real_content = $custom_config ? {
-    ''      => template("${module_name}/35-server.conf.erb"),
+    ''      => template("${module_name}/350-server.conf.erb"),
     default => template($custom_config),
   }
 

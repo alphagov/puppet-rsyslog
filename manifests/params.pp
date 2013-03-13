@@ -31,10 +31,10 @@ class rsyslog::params {
       $perm_dir               = '0755'
       $spool_dir              = '/var/spool/rsyslog/'
       $service_name           = 'rsyslog'
-      $client_conf            = "${rsyslog_d}50-client.conf"
-      $remote_conf            = "${rsyslog_d}40-remote.conf"
-      $server_conf            = "${rsyslog_d}35-server.conf"
-      $logstash_conf          = "${rsyslog_d}34-logstash.conf"
+      $client_conf            = "${rsyslog_d}500-client.conf"
+      $remote_conf            = "${rsyslog_d}400-remote.conf"
+      $server_conf            = "${rsyslog_d}350-server.conf"
+      $logstash_conf          = "${rsyslog_d}340-logstash.conf"
     }
     redhat: {
       case $::lsbmajdistrelease {
@@ -56,9 +56,9 @@ class rsyslog::params {
           $perm_dir               = '0750'
           $spool_dir              = '/var/lib/rsyslog/'
           $service_name           = 'rsyslog'
-          $client_conf            = "${rsyslog_d}50-client.conf"
-          $server_conf            = "${rsyslog_d}35-server.conf"
-          $logstash_conf          = "${rsyslog_d}34-logstash.conf"
+          $client_conf            = "${rsyslog_d}500-client.conf"
+          $server_conf            = "${rsyslog_d}350-server.conf"
+          $logstash_conf          = "${rsyslog_d}340-logstash.conf"
         }
         6: {
           $rsyslog_package_name   = 'rsyslog'
@@ -78,9 +78,9 @@ class rsyslog::params {
           $perm_dir               = '0750'
           $spool_dir              = '/var/lib/rsyslog/'
           $service_name           = 'rsyslog'
-          $client_conf            = "${rsyslog_d}50-client.conf"
-          $server_conf            = "${rsyslog_d}35-server.conf"
-          $logstash_conf          = "${rsyslog_d}34-logstash.conf"
+          $client_conf            = "${rsyslog_d}500-client.conf"
+          $server_conf            = "${rsyslog_d}350-server.conf"
+          $logstash_conf          = "${rsyslog_d}340-logstash.conf"
         }
         5: {
           $rsyslog_package_name   = 'rsyslog5'
@@ -100,9 +100,9 @@ class rsyslog::params {
           $perm_dir               = '0750'
           $spool_dir              = '/var/lib/rsyslog/'
           $service_name           = 'rsyslog'
-          $client_conf            = "${rsyslog_d}50-client.conf"
-          $server_conf            = "${rsyslog_d}35-server.conf"
-          $logstash_conf          = "${rsyslog_d}34-logstash.conf"
+          $client_conf            = "${rsyslog_d}500-client.conf"
+          $server_conf            = "${rsyslog_d}350-server.conf"
+          $logstash_conf          = "${rsyslog_d}340-logstash.conf"
         }
       }
     }
@@ -124,9 +124,9 @@ class rsyslog::params {
       $perm_dir               = '0755'
       $spool_dir              = '/var/spool/syslog/'
       $service_name           = 'syslogd'
-      $client_conf            = "${rsyslog_d}50-client.conf"
-      $server_conf            = "${rsyslog_d}35-server.conf"
-      $logstash_conf          = "${rsyslog_d}34-logstash.conf"
+      $client_conf            = "${rsyslog_d}500-client.conf"
+      $server_conf            = "${rsyslog_d}350-server.conf"
+      $logstash_conf          = "${rsyslog_d}340-logstash.conf"
     }
     default: {
       case $::operatingsystem {

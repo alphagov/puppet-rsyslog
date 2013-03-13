@@ -25,7 +25,7 @@ class rsyslog::logstash (
 ) inherits rsyslog {
 
   $content_real = $custom_config ? {
-    ''      => template("${module_name}/34-logstash.conf.erb"),
+    ''      => template("${module_name}/340-logstash.conf.erb"),
     default => template($custom_config),
   }
 

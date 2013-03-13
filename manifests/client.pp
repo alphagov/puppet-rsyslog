@@ -33,7 +33,7 @@ class rsyslog::client (
 ) inherits rsyslog {
 
   $content_real = $custom_config ? {
-    ''      => template("${module_name}/50-client.conf.erb"),
+    ''      => template("${module_name}/500-client.conf.erb"),
     default => template($custom_config),
   }
 
@@ -46,7 +46,7 @@ class rsyslog::client (
     notify  => Class['rsyslog::service'],
   }
 
-  $content_remote = template("${module_name}/40-remote.conf.erb")
+  $content_remote = template("${module_name}/400-remote.conf.erb")
 
   file { $rsyslog::params::remote_conf:
     ensure  => present,
