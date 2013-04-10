@@ -18,8 +18,7 @@ $ActionQueueSaveOnShutdown on   # save messages to disk on shutdown
 $ActionQueueType LinkedList     # run asynchronously
 $ActionResumeRetryCount -1      # infinety retries if host is down
 
-# Log to remote syslog server using <%= scope.lookupvar('rsyslog::logstash::remote_type') %>:<%= scope.lookupvar('rsyslog::logstash::port') -%>
-
+# Forward to logstash over <%= scope.lookupvar('rsyslog::logstash::remote_type').upcase %>
 <% if scope.lookupvar('rsyslog::logstash::remote_type') == 'tcp' -%>
 *.* @@<%= scope.lookupvar('rsyslog::logstash::server') -%>:<%= scope.lookupvar('rsyslog::logstash::port') -%>
 <% else -%>
