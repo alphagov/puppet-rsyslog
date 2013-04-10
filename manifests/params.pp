@@ -128,12 +128,10 @@ class rsyslog::params {
       $client_conf            = "${rsyslog_d}client.conf"
       $server_conf            = "${rsyslog_d}server.conf"
     }
-    default: {
-      case $::operatingsystem {
-        default: {
-          fail("Unsupported platform: ${::operatingsystem}")
-        }
-      }
-    }
+  }
+
+  # Test a couple of vars to catch fall-throughs from the above cases.
+  if !$rsyslog_package_name or !$rsyslog_d {
+    fail("Unsupported platform: ${::operatingsystem}")
   }
 }
