@@ -4,7 +4,8 @@ describe 'rsyslog::imfile', :type => :define do
   context "osfamily = RedHat" do
     let :facts do
       {
-        :osfamily        => 'RedHat',
+        :osfamily          => 'RedHat',
+        :lsbmajdistrelease => 6,
       }
     end
 
