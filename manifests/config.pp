@@ -20,6 +20,7 @@ class rsyslog::config inherits rsyslog::params {
     recurse => true,
     force   => true,
     require => Class['rsyslog::install'],
+    notify  => Class['rsyslog::service'],
   }
 
   file { $rsyslog::params::rsyslog_conf:
