@@ -37,72 +37,81 @@ class rsyslog::params {
       $logstash_conf          = "${rsyslog_d}340-logstash.conf"
     }
     redhat: {
-      case $::lsbmajdistrelease {
-        16: {
-          $rsyslog_package_name   = 'rsyslog'
-          $relp_package_name      = 'rsyslog-relp'
-          $mysql_package_name     = 'rsyslog-mysql'
-          $pgsql_package_name     = 'rsyslog-pgsql'
-          $package_status         = 'latest'
-          $rsyslog_d              = '/etc/rsyslog.d/'
-          $rsyslog_conf           = '/etc/rsyslog.conf'
-          $rsyslog_default        = '/etc/sysconfig/rsyslog'
-          $run_user               = 'root'
-          $run_group              = 'root'
-          $log_user               = 'root'
-          $log_group              = 'root'
-          $log_style              = 'redhat'
-          $perm_file              = '0600'
-          $perm_dir               = '0750'
-          $spool_dir              = '/var/lib/rsyslog/'
-          $service_name           = 'rsyslog'
-          $client_conf            = "${rsyslog_d}500-client.conf"
-          $server_conf            = "${rsyslog_d}350-server.conf"
-          $logstash_conf          = "${rsyslog_d}340-logstash.conf"
+      if $::operatingsystem == 'Fedora' {
+        case $::lsbmajdistrelease {
+          16, 17: {
+            $rsyslog_package_name   = 'rsyslog'
+            $relp_package_name      = 'rsyslog-relp'
+            $mysql_package_name     = 'rsyslog-mysql'
+            $pgsql_package_name     = 'rsyslog-pgsql'
+            $package_status         = 'latest'
+            $rsyslog_d              = '/etc/rsyslog.d/'
+            $rsyslog_conf           = '/etc/rsyslog.conf'
+            $rsyslog_default        = '/etc/sysconfig/rsyslog'
+            $run_user               = 'root'
+            $run_group              = 'root'
+            $log_user               = 'root'
+            $log_group              = 'root'
+            $log_style              = 'redhat'
+            $perm_file              = '0600'
+            $perm_dir               = '0750'
+            $spool_dir              = '/var/lib/rsyslog/'
+            $service_name           = 'rsyslog'
+            $client_conf            = "${rsyslog_d}500-client.conf"
+            $remote_conf            = "${rsyslog_d}400-remote.conf"
+            $server_conf            = "${rsyslog_d}350-server.conf"
+            $logstash_conf          = "${rsyslog_d}340-logstash.conf"
+          }
         }
-        6: {
-          $rsyslog_package_name   = 'rsyslog'
-          $relp_package_name      = 'rsyslog-relp'
-          $mysql_package_name     = 'rsyslog-mysql'
-          $pgsql_package_name     = 'rsyslog-pgsql'
-          $package_status         = 'latest'
-          $rsyslog_d              = '/etc/rsyslog.d/'
-          $rsyslog_conf           = '/etc/rsyslog.conf'
-          $rsyslog_default        = '/etc/sysconfig/rsyslog'
-          $run_user               = 'root'
-          $run_group              = 'root'
-          $log_user               = 'root'
-          $log_group              = 'root'
-          $log_style              = 'redhat'
-          $perm_file              = '0600'
-          $perm_dir               = '0750'
-          $spool_dir              = '/var/lib/rsyslog/'
-          $service_name           = 'rsyslog'
-          $client_conf            = "${rsyslog_d}500-client.conf"
-          $server_conf            = "${rsyslog_d}350-server.conf"
-          $logstash_conf          = "${rsyslog_d}340-logstash.conf"
-        }
-        5: {
-          $rsyslog_package_name   = 'rsyslog5'
-          $relp_package_name      = undef
-          $mysql_package_name     = 'rsyslog5-mysql'
-          $pgsql_package_name     = 'rsyslog5-pgsql'
-          $package_status         = 'latest'
-          $rsyslog_d              = '/etc/rsyslog.d/'
-          $rsyslog_conf           = '/etc/rsyslog.conf'
-          $rsyslog_default        = '/etc/sysconfig/rsyslog'
-          $run_user               = 'root'
-          $run_group              = 'root'
-          $log_user               = 'root'
-          $log_group              = 'root'
-          $log_style              = 'redhat'
-          $perm_file              = '0600'
-          $perm_dir               = '0750'
-          $spool_dir              = '/var/lib/rsyslog/'
-          $service_name           = 'rsyslog'
-          $client_conf            = "${rsyslog_d}500-client.conf"
-          $server_conf            = "${rsyslog_d}350-server.conf"
-          $logstash_conf          = "${rsyslog_d}340-logstash.conf"
+      }
+      else {
+        case $::lsbmajdistrelease {
+          6: {
+            $rsyslog_package_name   = 'rsyslog'
+            $relp_package_name      = 'rsyslog-relp'
+            $mysql_package_name     = 'rsyslog-mysql'
+            $pgsql_package_name     = 'rsyslog-pgsql'
+            $package_status         = 'latest'
+            $rsyslog_d              = '/etc/rsyslog.d/'
+            $rsyslog_conf           = '/etc/rsyslog.conf'
+            $rsyslog_default        = '/etc/sysconfig/rsyslog'
+            $run_user               = 'root'
+            $run_group              = 'root'
+            $log_user               = 'root'
+            $log_group              = 'root'
+            $log_style              = 'redhat'
+            $perm_file              = '0600'
+            $perm_dir               = '0750'
+            $spool_dir              = '/var/lib/rsyslog/'
+            $service_name           = 'rsyslog'
+            $client_conf            = "${rsyslog_d}500-client.conf"
+            $remote_conf            = "${rsyslog_d}400-remote.conf"
+            $server_conf            = "${rsyslog_d}350-server.conf"
+            $logstash_conf          = "${rsyslog_d}340-logstash.conf"
+          }
+          5: {
+            $rsyslog_package_name   = 'rsyslog5'
+            $relp_package_name      = undef
+            $mysql_package_name     = 'rsyslog5-mysql'
+            $pgsql_package_name     = 'rsyslog5-pgsql'
+            $package_status         = 'latest'
+            $rsyslog_d              = '/etc/rsyslog.d/'
+            $rsyslog_conf           = '/etc/rsyslog.conf'
+            $rsyslog_default        = '/etc/sysconfig/rsyslog'
+            $run_user               = 'root'
+            $run_group              = 'root'
+            $log_user               = 'root'
+            $log_group              = 'root'
+            $log_style              = 'redhat'
+            $perm_file              = '0600'
+            $perm_dir               = '0750'
+            $spool_dir              = '/var/lib/rsyslog/'
+            $service_name           = 'rsyslog'
+            $client_conf            = "${rsyslog_d}500-client.conf"
+            $remote_conf            = "${rsyslog_d}400-remote.conf"
+            $server_conf            = "${rsyslog_d}350-server.conf"
+            $logstash_conf          = "${rsyslog_d}340-logstash.conf"
+          }
         }
       }
     }
@@ -125,15 +134,14 @@ class rsyslog::params {
       $spool_dir              = '/var/spool/syslog/'
       $service_name           = 'syslogd'
       $client_conf            = "${rsyslog_d}500-client.conf"
+      $remote_conf            = "${rsyslog_d}400-remote.conf"
       $server_conf            = "${rsyslog_d}350-server.conf"
       $logstash_conf          = "${rsyslog_d}340-logstash.conf"
     }
-    default: {
-      case $::operatingsystem {
-        default: {
-          fail("Unsupported platform: ${::operatingsystem}")
-        }
-      }
-    }
+  }
+
+  # Test a couple of vars to catch fall-throughs from the above cases.
+  if !$rsyslog_package_name or !$rsyslog_d {
+    fail("Unsupported platform: ${::operatingsystem}")
   }
 }
