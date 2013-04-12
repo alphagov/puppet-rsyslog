@@ -11,10 +11,6 @@ $ModLoad imtcp
 #
 $ActionFileDefaultTemplate RSYSLOG_TraditionalFileFormat
 
-
-# Switch to logstash ruleset
-$RuleSet logstash
-
 $WorkDirectory <%= scope.lookupvar('rsyslog::params::spool_dir') -%>    # where to place spool files
 $ActionQueueFileName logstash      # unique name prefix for spool files
 $ActionQueueMaxDiskSpace <%= scope.lookupvar('rsyslog::logstash::spool_size') -%>     # spool space limit (use as much as possible)
@@ -22,20 +18,9 @@ $ActionQueueSaveOnShutdown on   # save messages to disk on shutdown
 $ActionQueueType LinkedList     # run asynchronously
 $ActionResumeRetryCount -1      # infinety retries if host is down
 
-# Log to remote syslog server using <%= scope.lookupvar('rsyslog::logstash::remote_type') %>:<%= scope.lookupvar('rsyslog::logstash::port') -%>
-
+# Forward to logstash over <%= scope.lookupvar('rsyslog::logstash::remote_type').upcase %>
 <% if scope.lookupvar('rsyslog::logstash::remote_type') == 'tcp' -%>
 *.* @@<%= scope.lookupvar('rsyslog::logstash::server') -%>:<%= scope.lookupvar('rsyslog::logstash::port') -%>
 <% else -%>
 *.* @<%= scope.lookupvar('rsyslog::logstash::server') -%>:<%= scope.lookupvar('rsyslog::logstash::port') -%>
 <% end -%>
-
-
-$RuleSet RSYSLOG_DefaultRuleset
-
-$InputUDPServerBindRuleset logstash
-$UDPServerRun 514
-
-$InputTCPServerBindRuleset logstash
-$InputTCPServerRun 514
-
