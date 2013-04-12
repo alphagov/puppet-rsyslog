@@ -138,12 +138,10 @@ class rsyslog::params {
       $server_conf            = "${rsyslog_d}350-server.conf"
       $logstash_conf          = "${rsyslog_d}340-logstash.conf"
     }
-    default: {
-      case $::operatingsystem {
-        default: {
-          fail("Unsupported platform: ${::operatingsystem}")
-        }
-      }
-    }
+  }
+
+  # Test a couple of vars to catch fall-throughs from the above cases.
+  if !$rsyslog_package_name or !$rsyslog_d {
+    fail("Unsupported platform: ${::operatingsystem}")
   }
 }
