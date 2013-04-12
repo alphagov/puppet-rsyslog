@@ -12,6 +12,10 @@
 #
 class rsyslog {
   class { 'rsyslog::install': }
-  class { 'rsyslog::config': }
-  class { 'rsyslog::service': }
+  class { 'rsyslog::config':
+    require => Class['rsyslog::install'],
+  }
+  class { 'rsyslog::service':
+    subscribe => Class['rsyslog::config'],
+  }
 }
