@@ -57,6 +57,7 @@ class rsyslog::params {
           $spool_dir              = '/var/lib/rsyslog/'
           $service_name           = 'rsyslog'
           $client_conf            = "${rsyslog_d}500-client.conf"
+          $remote_conf            = "${rsyslog_d}400-remote.conf"
           $server_conf            = "${rsyslog_d}350-server.conf"
           $logstash_conf          = "${rsyslog_d}340-logstash.conf"
         }
@@ -79,6 +80,7 @@ class rsyslog::params {
           $spool_dir              = '/var/lib/rsyslog/'
           $service_name           = 'rsyslog'
           $client_conf            = "${rsyslog_d}500-client.conf"
+          $remote_conf            = "${rsyslog_d}400-remote.conf"
           $server_conf            = "${rsyslog_d}350-server.conf"
           $logstash_conf          = "${rsyslog_d}340-logstash.conf"
         }
@@ -101,6 +103,7 @@ class rsyslog::params {
           $spool_dir              = '/var/lib/rsyslog/'
           $service_name           = 'rsyslog'
           $client_conf            = "${rsyslog_d}500-client.conf"
+          $remote_conf            = "${rsyslog_d}400-remote.conf"
           $server_conf            = "${rsyslog_d}350-server.conf"
           $logstash_conf          = "${rsyslog_d}340-logstash.conf"
         }
@@ -125,6 +128,7 @@ class rsyslog::params {
       $spool_dir              = '/var/spool/syslog/'
       $service_name           = 'syslogd'
       $client_conf            = "${rsyslog_d}500-client.conf"
+      $remote_conf            = "${rsyslog_d}400-remote.conf"
       $server_conf            = "${rsyslog_d}350-server.conf"
       $logstash_conf          = "${rsyslog_d}340-logstash.conf"
     }
