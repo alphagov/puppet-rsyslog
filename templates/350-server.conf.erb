@@ -18,9 +18,6 @@ $ModLoad imtcp
 $ActionFileDefaultTemplate RSYSLOG_TraditionalFileFormat
 <% end -%>
 
-# Switch to remote ruleset
-$RuleSet remote
-
 <% if scope.lookupvar('rsyslog::server::enable_onefile') == false -%>
 # Templates
 $Template dynAuthLog,"<%= scope.lookupvar('rsyslog::server::server_dir') -%><%= scope.lookupvar('rsyslog::server::per_host_dir') -%>/auth.log"
@@ -58,16 +55,10 @@ $Template dynAllMessages,"<%= scope.lookupvar('rsyslog::server::server_dir') -%>
 #
 :fromhost-ip,!isequal,"127.0.0.1" ~
 
-
-# Switch back to default ruleset
-$RuleSet RSYSLOG_DefaultRuleset
-
 <% if scope.lookupvar('rsyslog::server::enable_udp') -%>
-$InputUDPServerBindRuleset remote
 $UDPServerRun 514
 <% end -%>
 
 <% if scope.lookupvar('rsyslog::server::enable_tcp') -%>
-$InputTCPServerBindRuleset remote
 $InputTCPServerRun 514
 <% end -%>
